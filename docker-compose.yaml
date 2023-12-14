@@ -2,10 +2,19 @@ services:
   postgres:
     image: postgres
     env_file:
-      - D:\Carsties\src\env\postgres_env.env
+      - env/postgres_env.env
     ports:
       - 5432:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
+  mongodb:
+    image: mongo
+    env_file:
+      - env/mongodb_env.env
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/var/lib/mongodb/data
 volumes:
   pgdata:
+  mongodata:
