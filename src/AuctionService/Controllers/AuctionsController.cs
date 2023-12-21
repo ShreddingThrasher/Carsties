@@ -59,12 +59,12 @@ public class AuctionsController : ControllerBase
 		auction.Seller = "test";
 
 		_context.Auctions.Add(auction);
-
-		var result = await _context.SaveChangesAsync() > 0;
-
+		
 		var newAuction = _mapper.Map<AuctionDto>(auction);
 
 		await _publishEndpoint.Publish(_mapper.Map<AuctionCreated>(newAuction));
+
+		var result = await _context.SaveChangesAsync() > 0;
 
 		if (!result)
 		{
@@ -91,7 +91,7 @@ public class AuctionsController : ControllerBase
 		auction.Item.Mileage = updateAuctionDto.Mileage ?? auction.Item.Mileage;
 
 		var result = await _context.SaveChangesAsync() > 0;
-
+		
 		if (result) return Ok();
 
 		return BadRequest("Problem saving changes");
