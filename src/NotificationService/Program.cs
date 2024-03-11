@@ -1,4 +1,3 @@
-using Contracts;
 using MassTransit;
 using NotificationService.Consumers;
 using NotificationService.Hubs;
