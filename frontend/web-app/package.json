@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "date-fns": "^3.4.0",
     "flowbite": "^2.2.1",
     "flowbite-react": "^0.7.2",
     "next": "14.0.4",
