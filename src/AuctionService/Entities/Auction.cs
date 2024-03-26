@@ -17,4 +17,7 @@ public class Auction
 	
 	// nav properties
 	public Item Item { get; set; }
+	
+	public bool HasReservePrice()
+		=> ReservePrice > 0;
 }
