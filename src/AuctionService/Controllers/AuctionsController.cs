@@ -33,11 +33,11 @@ public class AuctionsController : ControllerBase
 	[HttpGet("{id}")]
 	public async Task<ActionResult<AuctionDto>> GetAuctionById(Guid id)
 	{
-		var auction = await _repo.GetAuctionEntityById(id);
+		var auction = await _repo.GetAuctionByIdAsync(id);
 
-		if (auction == null) return NotFound();
+        if (auction == null) return NotFound();
 
-		return _mapper.Map<AuctionDto>(auction);
+        return auction;
 	}
 
 	[Authorize]
