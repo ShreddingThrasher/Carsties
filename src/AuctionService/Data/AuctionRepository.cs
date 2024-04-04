@@ -26,7 +26,7 @@ namespace AuctionService.Data
 		{
 			return await _context.Auctions
 				.ProjectTo<AuctionDto>(_mapper.ConfigurationProvider)
-				.FirstOrDefaultAsync();
+				.FirstOrDefaultAsync(a => a.Id == id);
 		}
 
 		public async Task<Auction> GetAuctionEntityById(Guid id)
